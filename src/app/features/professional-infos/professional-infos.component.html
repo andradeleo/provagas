@@ -6,26 +6,26 @@
     </a>
     <h1>Preencha todos os dados</h1>
   </header>
-  <form class="professional-infos professional-infos__body__form">
+  <form [formGroup]="form" class="professional-infos professional-infos__body__form">
     <div>
       <label for="name">Nome</label>
-      <input nz-input placeholder="Leonardo Andrade" id="name" nzSize="large" />
+      <input nz-input placeholder="Leonardo Andrade" formControlName="name" id="name" nzSize="large" />
     </div>
     <div>
       <label for="email">Email</label>
-      <input nz-input placeholder="contato@leo.com" id="email" nzSize="large" />
+      <input nz-input placeholder="contato@leo.com" id="email" nzSize="large" formControlName="email" />
     </div>
     <div class="professional-infos__body__form__group-field--inline">
       <div class="professional-infos__body__form__group-field">
         <label for="company">Empresa</label>
-        <input nz-input placeholder="NDD Tech" id="company" nzSize="large" />
+        <input nz-input placeholder="NDD Tech" id="company" nzSize="large" formControlName="company"/>
       </div>
       <div class="professional-infos__body__form__group-field">
         <label for="job-title">Cargo</label>
-        <input nz-input placeholder="Software Engineer" id="job-title" nzSize="large" />
+        <input nz-input placeholder="Software Engineer" id="job-title" nzSize="large" formControlName="job_title" />
       </div>
     </div>
-    <button class="professional-infos__body__form__button" nz-button nzType="primary">
+    <button (click)="submit()" class="professional-infos__body__form__button" nz-button nzType="primary">
       Salvar
     </button>
   </form>
