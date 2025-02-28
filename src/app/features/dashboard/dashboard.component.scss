@@ -20,6 +20,10 @@
       gap: 16px;
 
       &__text {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
         > h2 {
           font-size: 24px;
           color: #d4d4d8;
@@ -30,7 +34,11 @@
           font-size: 16px;
           color: #a1a1aa;
           letter-spacing: 1.5px;
+          margin-bottom: 14px;
+        }
 
+        .button-generate {
+          width: 150px;
         }
       }
     }

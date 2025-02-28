@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
@@ -27,12 +27,12 @@ export class ProfessionalInfosComponent implements OnInit {
 
   public ngOnInit(): void {
     const professionalFormData = this.localStorage.get(LocalStorageKeys.professionalFormData);
-    this.form.setValue(professionalFormData);
+    if(professionalFormData) this.form.patchValue(professionalFormData);
   }
 
   public submit() {
     if(this.form.invalid) return;
-
+    console.log(this.form.value)
     const submittedData = this.form.value;
     this.localStorage.set(LocalStorageKeys.professionalFormData, submittedData);
   }

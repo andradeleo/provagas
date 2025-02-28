@@ -2,7 +2,7 @@
   <header class="dashboard dashboard__header">
     <h1>Seja bem-vindo(a)</h1>
     <button [routerLink]="'/professional-infos'" nz-button nzType="primary">
-      <span>My profile</span>
+      <span>Meu Perfil</span>
       <nz-icon nzType="right" />
     </button>
   </header>
@@ -11,6 +11,9 @@
     <div class="dashboard__body__empty-content__text">
       <h2>Você não gerou nenhum currículo ainda!</h2>
       <span>Preencha as informações no seu perfil e gere o seu currículo ATS.</span>
+      <button (click)="generate()" [disabled]="disabled" nz-button nzType="primary" class="button-generate">
+        <span>Gerar</span>
+      </button>
     </div>
   </div>
 
