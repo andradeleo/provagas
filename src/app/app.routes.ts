@@ -6,7 +6,7 @@ export const routes: Routes = [
     loadComponent: () => import("./features/dashboard/dashboard.component").then(module => module.DashboardComponent)
   },
   {
-    path: "professional-infos",
-    loadComponent: () => import("./features/professional-infos/professional-infos.component").then(module => module.ProfessionalInfosComponent)
+    path: "profiles",
+    loadComponent: () => import("./features/profiles/profiles.component").then(module => module.ProfilesComponent)
   }
 ];

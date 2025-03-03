@@ -10,12 +10,12 @@ import { CommonModule } from '@angular/common';
 import { DynamicFormComponent } from '../shared/components/dinamyc-form/dynamic-form.component';
 
 @Component({
-  selector: 'app-professional-infos',
+  selector: 'profiles',
   imports: [CommonModule, NzButtonModule, NzIconModule, NzInputModule ,RouterLink, ReactiveFormsModule, DynamicFormComponent],
-  templateUrl: './professional-infos.component.html',
-  styleUrl: './professional-infos.component.scss'
+  templateUrl: './profiles.component.html',
+  styleUrl: './profiles.component.scss'
 })
-export class ProfessionalInfosComponent implements OnInit {
+export class ProfilesComponent implements OnInit {
   protected form: FormGroup;
   public localStorage: LocalStorageService = inject(LocalStorageService)
 
