@@ -19,7 +19,8 @@
       <label for="description">Descrição</label>
       <textarea id="description" formControlName="description" rows="4" nz-input></textarea>
     </div>
-    <dynamic-form formControlName="links"></dynamic-form>
+    <dynamic-form buttonText="Adicionar Links" formControlName="links"></dynamic-form>
+    <dynamic-form buttonText="Adicionar Skills" formControlName="skills"></dynamic-form>
     <button (click)="submit()" class="professional-infos__body__form__button"  nz-button [nzSize]="'large'" nzType="primary">
       Salvar
     </button>

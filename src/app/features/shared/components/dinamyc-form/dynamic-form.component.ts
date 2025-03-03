@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, forwardRef, OnInit } from '@angular/core';
+import { AfterViewInit, Component, forwardRef, inject, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { LocalStorageService } from '../../../../../core/localstorage/local-storage.service';
+import { LocalStorageKeys } from '../../../../constants/local-storage-keys';
 
 @Component({
   selector: 'dynamic-form',
@@ -18,18 +20,24 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     },
   ]
 })
-export class DynamicFormComponent implements OnInit, ControlValueAccessor  {
-  public links: string[] = [];
+export class DynamicFormComponent implements AfterViewInit, ControlValueAccessor  {
+  @Input() buttonText: string = "Adicionar";
 
-  public ngOnInit(): void {
-    this.links = ["https://andrleo.com"];
+  public storage = inject(LocalStorageService);
+
+  public dynamicData: string[] = [];
+
+  public ngAfterViewInit(): void {
+    if(!this.storage.get(LocalStorageKeys.professionalFormData)) {
+      this.addDynamicData();
+    }
   }
 
   onChange: (value: any) => void = () => {};
   onTouched: () => void = () => {};
 
   writeValue(obj: any): void {
-    this.links = obj || [];
+    this.dynamicData = obj || [];
   }
 
   registerOnChange(fn: any): void {
@@ -40,21 +48,21 @@ export class DynamicFormComponent implements OnInit, ControlValueAccessor  {
     this.onTouched = fn;
   }
 
-  addLink(): void {
-    this.links.push("");
-    this.onChange(this.links);
+  addDynamicData(): void {
+    this.dynamicData.push("");
+    this.onChange(this.dynamicData);
   }
 
   // Remove um link pelo índice
-  removeLink(index: number): void {
-    this.links.splice(index, 1);
-    this.onChange(this.links);
+  removeDynamicData(index: number): void {
+    this.dynamicData.splice(index, 1);
+    this.onChange(this.dynamicData);
   }
 
   // Atualiza o valor do link individual
   atualizar(index: number, value: string): void {
-    this.links[index] = value;
-    this.onChange(this.links);
+    this.dynamicData[index] = value;
+    this.onChange(this.dynamicData);
   }
 
   trackByIndex(index: number, item: any): number {

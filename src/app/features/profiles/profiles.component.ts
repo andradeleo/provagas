@@ -26,7 +26,8 @@ export class ProfilesComponent implements OnInit {
       name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       description: new FormControl(null, [Validators.required]),
-      links: new FormControl([])
+      links: new FormControl([]),
+      skills: new FormControl([]),
     })
   }
 
