@@ -6,10 +6,12 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { LocalStorageService } from '../../../core/localstorage/local-storage.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LocalStorageKeys } from '../../constants/local-storage-keys';
+import { CommonModule } from '@angular/common';
+import { DynamicFormComponent } from '../shared/components/dinamyc-form/dynamic-form.component';
 
 @Component({
   selector: 'app-professional-infos',
-  imports: [NzButtonModule, NzIconModule, NzInputModule ,RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, NzButtonModule, NzIconModule, NzInputModule ,RouterLink, ReactiveFormsModule, DynamicFormComponent],
   templateUrl: './professional-infos.component.html',
   styleUrl: './professional-infos.component.scss'
 })
@@ -23,8 +25,8 @@ export class ProfessionalInfosComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      company: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      job_title: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required]),
+      links: new FormControl([])
     })
   }
 
@@ -37,7 +39,6 @@ export class ProfessionalInfosComponent implements OnInit {
 
   public submit() {
     if(this.form.invalid) return;
-    console.log(this.form.value)
     const submittedData = this.form.value;
     this.localStorage.set(LocalStorageKeys.professionalFormData, submittedData);
   }

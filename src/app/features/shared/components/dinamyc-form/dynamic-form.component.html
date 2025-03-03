@@ -1,0 +1,11 @@
+<div>
+  <button (click)="addLink()" nz-button nzType="primary" style="padding: 0 8px;">
+    Adicionar Link
+  </button>
+  <div *ngFor="let data of links; let i = index; trackBy: trackByIndex" style="margin: 20px 0;">
+    <div style="display: flex; gap: 20px; align-items: center;">
+      <input nz-input placeholder="link"  [ngModel]="data" id="index" nzSize="large" (ngModelChange)="atualizar(i, $event)"/>
+      <button style="padding: 0 8px;" type="button" nz-button nzType="primary" [nzSize]="'large'" (click)="removeLink(i)">Remover</button>
+    </div>
+  </div>
+</div>

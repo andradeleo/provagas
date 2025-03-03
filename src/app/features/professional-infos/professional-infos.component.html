@@ -15,17 +15,12 @@
       <label for="email">Email</label>
       <input nz-input placeholder="contato@leo.com" id="email" nzSize="large" formControlName="email" />
     </div>
-    <div class="professional-infos__body__form__group-field--inline">
-      <div class="professional-infos__body__form__group-field">
-        <label for="company">Empresa</label>
-        <input nz-input placeholder="NDD Tech" id="company" nzSize="large" formControlName="company"/>
-      </div>
-      <div class="professional-infos__body__form__group-field">
-        <label for="job-title">Cargo</label>
-        <input nz-input placeholder="Software Engineer" id="job-title" nzSize="large" formControlName="job_title" />
-      </div>
+    <div>
+      <label for="description">Descrição</label>
+      <textarea id="description" formControlName="description" rows="4" nz-input></textarea>
     </div>
-    <button (click)="submit()" class="professional-infos__body__form__button" nz-button nzType="primary">
+    <dynamic-form formControlName="links"></dynamic-form>
+    <button (click)="submit()" class="professional-infos__body__form__button"  nz-button [nzSize]="'large'" nzType="primary">
       Salvar
     </button>
   </form>
