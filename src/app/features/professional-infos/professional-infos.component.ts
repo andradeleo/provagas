@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
@@ -15,8 +15,11 @@ import { LocalStorageKeys } from '../../constants/local-storage-keys';
 })
 export class ProfessionalInfosComponent implements OnInit {
   protected form: FormGroup;
+  public localStorage: LocalStorageService = inject(LocalStorageService)
 
-  constructor(private localStorage: LocalStorageService) {
+  constructor() {
+    // TODO
+    // refatorar form seguindo esse vídeo: https://www.youtube.com/watch?v=-E-0Gv0yNwY
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -26,6 +29,8 @@ export class ProfessionalInfosComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    // TODO
+    // Verificar se o serviço localStorage não deveria extender Storage
     const professionalFormData = this.localStorage.get(LocalStorageKeys.professionalFormData);
     if(professionalFormData) this.form.patchValue(professionalFormData);
   }
