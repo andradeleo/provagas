@@ -1,28 +1,31 @@
-<main class="professional-infos">
-  <header class="professional-infos professional-infos__header">
+<main>
+  <header>
     <a [routerLink]="'/dashboard'" nz-button nzType="link">
       <nz-icon nzType="left" />
       <span>Voltar</span>
     </a>
-    <h1>Preencha todos os dados</h1>
+    <h1>Meus Perfis</h1>
   </header>
-  <form [formGroup]="form" class="professional-infos professional-infos__body__form">
-    <div>
-      <label for="name">Nome</label>
-      <input nz-input placeholder="Leonardo Andrade" formControlName="name" id="name" nzSize="large" />
-    </div>
-    <div>
-      <label for="email">Email</label>
-      <input nz-input placeholder="contato@leo.com" id="email" nzSize="large" formControlName="email" />
-    </div>
-    <div>
-      <label for="description">Descrição</label>
-      <textarea id="description" formControlName="description" rows="4" nz-input></textarea>
-    </div>
-    <dynamic-form buttonText="Adicionar Links" formControlName="links"></dynamic-form>
-    <dynamic-form buttonText="Adicionar Skills" formControlName="skills"></dynamic-form>
-    <button (click)="submit()" class="professional-infos__body__form__button"  nz-button [nzSize]="'large'" nzType="primary">
-      Salvar
-    </button>
-  </form>
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <nz-card nzTitle="Default" nzSize="small" [nzActions]="cardActions">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, laudantium!</p>
+    </nz-card>
+    <nz-card nzTitle="Software Engineer | Generic" nzSize="small" [nzActions]="cardActions">
+      <p>Lorem ipsum dolor sit.</p>
+    </nz-card>
+    <nz-card nzTitle="Front-End Engineer" nzSize="small" [nzActions]="cardActions">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore, laudantium!</p>
+    </nz-card>
+    <nz-card nzTitle="Uber 12/24" nzSize="small" [nzActions]="cardActions">
+      <p>lorem100</p>
+    </nz-card>
+  </div>
 </main>
+
+<ng-template #editTemplate>
+  <i nz-icon nzType="edit"></i>
+</ng-template>
+
+<ng-template #deleteTemplate>
+  <i nz-icon nzType="delete"></i>
+</ng-template>

@@ -1,48 +1,17 @@
-.professional-infos {
-  min-width: 650px;
-  padding-top: 32px;
+main {
+  width: 100%;
+  max-width: 720px;
+  padding: 32px;
+  height: 100%;
+  margin: 0 auto;
 
-  &__header {
+  header{
     display: flex;
     flex-direction: column;
     gap: 8px;
     align-items: start;
+    margin-bottom: 32px;
   }
-
-  &__body {
-    &__form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 48px;
-
-      &__group-field {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-
-        &--inline {
-          display: flex;
-          gap: 12px;
-        }
-      }
-
-      &__field {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-      }
-
-      &__button {
-        margin-top: 20px;
-      }
-    }
-  }
-}
-
-.flex {
-  display: flex;
-  flex: 1;
 }
 
 [nz-button] {
