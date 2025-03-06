@@ -11,9 +11,21 @@ main {
     gap: 8px;
     align-items: start;
     margin-bottom: 32px;
+
+    > div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    > [nz-button] {
+      padding: 0px;
+    }
   }
 }
 
-[nz-button] {
-  padding: 0;
+
+h1 {
+  margin-bottom: 0;
 }

@@ -4,7 +4,13 @@
       <nz-icon nzType="left" />
       <span>Voltar</span>
     </a>
-    <h1>Meus Perfis</h1>
+    <div>
+      <h1>Meus Perfis</h1>
+      <button [routerLink]="'/new-profile'" nz-button nzSize="default" nzType="primary">
+        <span>Criar Novo Perfil</span>
+        <nz-icon nzType="right" />
+      </button>
+    </div>
   </header>
   <div style="display: flex; flex-direction: column; gap: 12px;">
     <nz-card nzTitle="Default" nzSize="small" [nzActions]="cardActions">
